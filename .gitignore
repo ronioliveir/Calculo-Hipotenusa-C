@@ -1,52 +1,31 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+float CalculaHipotenusa(float B, float C);
 
-# Linker output
-*.ilk
-*.map
-*.exp
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    float A;
+    float B, C, contador = 0;
 
-# Precompiled Headers
-*.gch
-*.pch
+    while(contador < 100){
+        printf("Digite o valor do Cateto B: ");
+        scanf("%f", &B);
+        printf("Digite o valor do Cateto C: ");
+        scanf("%f", &C);
+        A = CalculaHipotenusa(B, C);
+        printf("%.2f\n", A);
+    }
+    return 0;
+}
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+float CalculaHipotenusa(float B, float C){
+    float hipotenusa;
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+    hipotenusa = sqrt(pow(C,2) + pow(B,2));
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    return hipotenusa;
+}
