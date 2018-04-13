@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
+
+float CalculaHipotenusa(float B, float C);
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+    float A;
+    float B, C, contador = 0;
+
+    while(contador < 100){
+        printf("Digite o valor do Cateto B: ");
+        scanf("%f", &B);
+        printf("Digite o valor do Cateto C: ");
+        scanf("%f", &C);
+        A = CalculaHipotenusa(B, C);
+        printf("%.2f\n", A);
+    }
+    return 0;
+}
+
+float CalculaHipotenusa(float B, float C){
+    float hipotenusa;
+
+    hipotenusa = sqrt(pow(C,2) + pow(B,2));
+
+    return hipotenusa;
+}
